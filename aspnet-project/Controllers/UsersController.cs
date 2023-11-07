@@ -17,7 +17,7 @@ namespace aspnet_project.Controllers
         }
 
         [HttpPost("create")]
-        public JsonResult AddUser([FromBody] Users users)
+        public IActionResult AddUser([FromBody] Users users)
         {
             try
             {
@@ -27,12 +27,12 @@ namespace aspnet_project.Controllers
             }
             catch (Exception ex)
             {
-                return Json(new { error = "An error occurred while adding the user", message = ex.Message });
+                return BadRequest(new { error = "An error occurred while adding the user", message = ex.Message });
             }
         }
 
         [HttpPut("update")]
-        public JsonResult UpdateUser([FromBody] Users users)
+        public IActionResult UpdateUser([FromBody] Users users)
         {
             try
             {
@@ -48,7 +48,7 @@ namespace aspnet_project.Controllers
         }
 
         [HttpDelete("delete")]
-        public JsonResult DeleteUser([FromHeader] int id) {
+        public IActionResult DeleteUser([FromHeader] int id) {
             try
             {
                 _usersService.DeleteUser(id);
@@ -62,7 +62,7 @@ namespace aspnet_project.Controllers
         }
 
         [HttpGet("getById")]
-        public JsonResult GetUserById([FromHeader] int id)
+        public IActionResult GetUserById([FromHeader] int id)
         {
             try
             {
@@ -75,7 +75,7 @@ namespace aspnet_project.Controllers
         }
 
         [HttpGet("getAllUsers")]
-        public JsonResult GetAllUsers()
+        public IActionResult GetAllUsers()
         {
             try
             {
