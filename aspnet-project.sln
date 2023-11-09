@@ -3,32 +3,28 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Api", "aspnet-project\App.Api.csproj", "{C55F4CB5-ED48-40A7-B561-6B931EA0B640}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Api", "aspnet-project\App.Api.csproj", "{C55F4CB5-ED48-40A7-B561-6B931EA0B640}"
 	ProjectSection(ProjectDependencies) = postProject
 		{B67332B1-5B97-49BA-B08E-DF827312C556} = {B67332B1-5B97-49BA-B08E-DF827312C556}
 		{DE2553F6-1044-4E8B-84E0-932C24C88B41} = {DE2553F6-1044-4E8B-84E0-932C24C88B41}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Application", "App.Application\App.Application.csproj", "{B67332B1-5B97-49BA-B08E-DF827312C556}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Application", "App.Application\App.Application.csproj", "{B67332B1-5B97-49BA-B08E-DF827312C556}"
 	ProjectSection(ProjectDependencies) = postProject
 		{10D47AF4-8544-46D2-BE12-2D88FC461EB0} = {10D47AF4-8544-46D2-BE12-2D88FC461EB0}
 		{26D597E5-5B18-483D-BC2A-A1F57055A753} = {26D597E5-5B18-483D-BC2A-A1F57055A753}
-		{59AB901B-30DD-4360-BBFD-1B28FC831B9A} = {59AB901B-30DD-4360-BBFD-1B28FC831B9A}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Common", "App.Common\App.Common.csproj", "{26D597E5-5B18-483D-BC2A-A1F57055A753}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Common", "App.Common\App.Common.csproj", "{26D597E5-5B18-483D-BC2A-A1F57055A753}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Domain", "App.Domain\App.Domain.csproj", "{10D47AF4-8544-46D2-BE12-2D88FC461EB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Domain", "App.Domain\App.Domain.csproj", "{10D47AF4-8544-46D2-BE12-2D88FC461EB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Helper", "App.Helper\App.Helper.csproj", "{59AB901B-30DD-4360-BBFD-1B28FC831B9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Persistence", "App.Persistence\App.Persistence.csproj", "{DE2553F6-1044-4E8B-84E0-932C24C88B41}"
 	ProjectSection(ProjectDependencies) = postProject
 		{10D47AF4-8544-46D2-BE12-2D88FC461EB0} = {10D47AF4-8544-46D2-BE12-2D88FC461EB0}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Persistence", "App.Persistence\App.Persistence.csproj", "{DE2553F6-1044-4E8B-84E0-932C24C88B41}"
-	ProjectSection(ProjectDependencies) = postProject
-		{10D47AF4-8544-46D2-BE12-2D88FC461EB0} = {10D47AF4-8544-46D2-BE12-2D88FC461EB0}
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Web", "App.Web\App.Web.csproj", "{7BB6803B-EC6D-41A9-89C8-44AD5404E507}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,14 +48,14 @@ Global
 		{10D47AF4-8544-46D2-BE12-2D88FC461EB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10D47AF4-8544-46D2-BE12-2D88FC461EB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10D47AF4-8544-46D2-BE12-2D88FC461EB0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{59AB901B-30DD-4360-BBFD-1B28FC831B9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{59AB901B-30DD-4360-BBFD-1B28FC831B9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{59AB901B-30DD-4360-BBFD-1B28FC831B9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{59AB901B-30DD-4360-BBFD-1B28FC831B9A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DE2553F6-1044-4E8B-84E0-932C24C88B41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DE2553F6-1044-4E8B-84E0-932C24C88B41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE2553F6-1044-4E8B-84E0-932C24C88B41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE2553F6-1044-4E8B-84E0-932C24C88B41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BB6803B-EC6D-41A9-89C8-44AD5404E507}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BB6803B-EC6D-41A9-89C8-44AD5404E507}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BB6803B-EC6D-41A9-89C8-44AD5404E507}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BB6803B-EC6D-41A9-89C8-44AD5404E507}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

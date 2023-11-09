@@ -17,6 +17,6 @@ namespace App.Persistence
 
         }
 
-        public DbSet<Users> users { get; set; }
+        public DbSet<Pessoa> pessoa { get; set; }
     }
 }

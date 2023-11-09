@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using App.Domain.Interfaces.Repositories;
+﻿using App.Domain.Interfaces.Repositories;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 

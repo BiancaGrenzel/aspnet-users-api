@@ -6,6 +6,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20231107132243_update1.cs" />
+    <Compile Remove="Migrations\20231107132243_update1.Designer.cs" />
+    <Compile Remove="Migrations\20231107132419_update2.cs" />
+    <Compile Remove="Migrations\20231107132419_update2.Designer.cs" />
+    <Compile Remove="Migrations\20231107164635_update3.cs" />
+    <Compile Remove="Migrations\20231107164635_update3.Designer.cs" />
+    <Compile Remove="Migrations\20231107165804_update4.cs" />
+    <Compile Remove="Migrations\20231107165804_update4.Designer.cs" />
+    <Compile Remove="Migrations\20231107171147_update5.cs" />
+    <Compile Remove="Migrations\20231107171147_update5.Designer.cs" />
+    <Compile Remove="Migrations\20231107180835_update6.cs" />
+    <Compile Remove="Migrations\20231107180835_update6.Designer.cs" />
+    <Compile Remove="Migrations\20231109112037_update7.cs" />
+    <Compile Remove="Migrations\20231109112037_update7.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.13">
       <PrivateAssets>all</PrivateAssets>
