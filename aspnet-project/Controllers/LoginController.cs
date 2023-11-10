@@ -1,6 +1,5 @@
 ﻿using App.Domain.DTO;
 using App.Domain.DTOs;
-using App.Domain.Entities;
 using App.Domain.Interfaces.Application;
 using Autenticador.API.Auth;
 using Microsoft.AspNetCore.Authorization;
@@ -10,19 +9,19 @@ using Microsoft.Extensions.Options;
 namespace App.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class IndexController : Controller
+    [Route("login")]
+    public class LoginController : Controller
     {
         private readonly JwtIssuerOptions _jwtOptions;
-        private IIndexService _service;
+        private ILoginService _service;
 
-        public IndexController(IOptions<JwtIssuerOptions> jwtOptions, IIndexService service)
+        public LoginController(IOptions<JwtIssuerOptions> jwtOptions, ILoginService service)
         {
             _service = service;
             _jwtOptions = jwtOptions.Value;
         }
 
-        [HttpPost("Logar")]
+        [HttpPost("entrar")]
         [AllowAnonymous]
         public JsonResult Logar([FromBody] LoginDTO login)
         {
@@ -39,7 +38,7 @@ namespace App.Api.Controllers
             }
         }
 
-        [HttpGet("Autenticado")]
+        [HttpGet("autenticado")]
         [AllowAnonymous]
         public JsonResult Autenticado()
         {

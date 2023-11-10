@@ -2,12 +2,6 @@
 using App.Domain.Interfaces.Application;
 using App.Domain.Interfaces.Repositories;
 using Autenticador.Domain.DTOs.Auth;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace App.Application.Services
 {

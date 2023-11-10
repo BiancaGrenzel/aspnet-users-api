@@ -9,10 +9,10 @@ using System.Linq;
 
 namespace App.Application.Services
 {
-    public class IndexService : IIndexService
+    public class LoginService : ILoginService
     {
         private IRepositoryBase<Pessoa> _repository { get; set; }
-        public IndexService(IRepositoryBase<Pessoa> repository)
+        public LoginService(IRepositoryBase<Pessoa> repository)
         {
             _repository = repository;
         }

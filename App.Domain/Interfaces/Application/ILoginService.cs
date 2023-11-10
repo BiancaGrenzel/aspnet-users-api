@@ -4,7 +4,7 @@ using Autenticador.Domain.DTOs.Auth;
 
 namespace App.Domain.Interfaces.Application
 {
-    public interface IIndexService
+    public interface ILoginService
     {
         AuthData Logar(LoginDTO login);
         Pessoa Autenticado(AuthData auth);
