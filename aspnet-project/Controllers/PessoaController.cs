@@ -49,7 +49,7 @@ namespace aspnet_project.Controllers
         }
 
         [HttpDelete("deletar")]
-        public IActionResult Deletar([FromHeader] int id) {
+        public IActionResult Deletar([FromHeader] Guid id) {
             try
             {
                 _pessoaService.Deletar(id);
@@ -63,7 +63,7 @@ namespace aspnet_project.Controllers
         }
 
         [HttpGet("buscarPorId")]
-        public IActionResult BuscarPorId([FromHeader] int id)
+        public IActionResult BuscarPorId([FromHeader] Guid id)
         {
             try
             {
