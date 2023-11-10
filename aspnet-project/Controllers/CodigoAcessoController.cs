@@ -7,7 +7,7 @@ using Microsoft.Extensions.Options;
 namespace App.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("codigoAcessoController")]
     public class CodigoAcessoController : Controller
     {
         private ICodigoAcessoService _service;
@@ -19,7 +19,7 @@ namespace App.Api.Controllers
             _jwtOptions = jwtOptions.Value;
         }
 
-        [HttpGet("Gerar")]
+        [HttpGet("gerar")]
         public JsonResult Gerar()
         {
             try
