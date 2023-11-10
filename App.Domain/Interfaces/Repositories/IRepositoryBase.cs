@@ -8,7 +8,7 @@ namespace App.Domain.Interfaces.Repositories
         IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> where);
         void Save(TEntity obj);
         void Update(TEntity obj);
-        void Delete(int id);
+        void Delete(Guid id);
         int SaveChanges();
         DbContext Context();
     }

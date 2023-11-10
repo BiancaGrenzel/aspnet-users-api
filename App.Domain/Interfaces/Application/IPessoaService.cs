@@ -5,9 +5,9 @@ namespace App.Domain.Interfaces.Application
     public interface IPessoaService
     {
         void Editar(Pessoa obj);
-        void Deletar(int id);
+        void Deletar(Guid id);
         void Criar(Pessoa obj);
-        Pessoa BuscarPorId(int id);
+        Pessoa BuscarPorId(Guid id);
         List<Pessoa> BuscarLista();
     }
 }

@@ -31,7 +31,7 @@ namespace App.Persistence.Repositories
             _dbSetEntity.Update(obj);
         }
 
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
             var data = _dbSetEntity.Find(id);
             if (data != null)

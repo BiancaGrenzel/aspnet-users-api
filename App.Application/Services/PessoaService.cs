@@ -1,6 +1,7 @@
 ﻿using App.Domain.Entities;
 using App.Domain.Interfaces.Application;
 using App.Domain.Interfaces.Repositories;
+using System;
 
 namespace App.Application.Services
 {
@@ -59,9 +60,9 @@ namespace App.Application.Services
 
 
 
-        public void Deletar(int id)
+        public void Deletar(Guid id)
         {
-            var dadosAntigos = _repository.Query(x => x.Id == id).FirstOrDefault();
+            var dadosAntigos = _repository.Query(x => x.Id == Convert.ToInt32(id)).FirstOrDefault();
 
             if (dadosAntigos == null)
             {
@@ -72,9 +73,9 @@ namespace App.Application.Services
             _repository.SaveChanges();
         }
 
-        public Pessoa BuscarPorId(int id)
+        public Pessoa BuscarPorId(Guid id)
         {
-            var obj = _repository.Query(x => x.Id == id).FirstOrDefault();
+            var obj = _repository.Query(x => x.Id == Convert.ToInt32(id)).FirstOrDefault();
             return obj;
         }
 
