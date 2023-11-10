@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using App.Domain.Enums;
 
 namespace App.Domain.Entities
 {
@@ -8,5 +8,6 @@ namespace App.Domain.Entities
         public string Nome { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }
+        public TipoPessoa Nivel { get; }
     }
 }

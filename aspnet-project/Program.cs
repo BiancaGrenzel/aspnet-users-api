@@ -1,5 +1,6 @@
 using App.Persistence;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +17,34 @@ App.Persistence.DependencyInjectionConfig.Inject(builder.Services);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+//builder.Services.AddSwaggerGen(c =>
+// {
+//     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+//     {
+//         Name = "Authorization",
+//         Type = SecuritySchemeType.ApiKey,
+//         Scheme = "Bearer",
+//         BearerFormat = "JWT",
+//         In = ParameterLocation.Header,
+//         Description = "JWT Authorization header using the Bearer scheme. Bearer'[space] and then your token in the text input below. Bearer 12345abcdef",
+//     });
+//     c.AddSecurityRequirement(new OpenApiSecurityRequirement
+//     {
+//         {
+//             new OpenApiSecurityScheme
+//             {
+//                 Reference = new OpenApiReference
+//                 {
+//                     Type = ReferenceType.SecurityScheme,
+//                     Id = "Bearer"
+//                 }
+//             },
+//             new string[] {}
+//         }
+//     });
+// });
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAnyOrigin",

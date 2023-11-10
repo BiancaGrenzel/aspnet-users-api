@@ -1,4 +1,5 @@
-﻿using App.Domain.Entities;
+﻿using App.Domain.DTO.Auth;
+using App.Domain.Entities;
 using App.Domain.Interfaces.Application;
 using App.Domain.Interfaces.Repositories;
 
@@ -7,9 +8,46 @@ namespace App.Application.Services
     public class PessoaService : IPessoaService
     {
         private IRepositoryBase<Pessoa> _repository { get; set; }
-        public PessoaService(IRepositoryBase<Pessoa> repository)
+        private readonly IActiveDirectoryService _adService;
+        public PessoaService(IRepositoryBase<Pessoa> repository, IActiveDirectoryService adService)
         {
             _repository = repository;
+            _adService = adService;
+        }
+
+        public AuthData Autenticar(AuthRequest obj)
+        {
+            if (String.IsNullOrEmpty(obj.Email))
+            {
+                throw new Exception("Informe seu email");
+            }
+
+            if (String.IsNullOrEmpty(obj.Senha))
+            {
+                throw new Exception("Informe sua senha");
+            }
+            var nome = _adService.Autenticar(obj);
+            if (String.IsNullOrEmpty(nome))
+            {
+                throw new Exception("Usuário e/ou senha inválido(s)");
+            }
+
+            var usuario = _repository.Query(x => x.Email.Trim().ToLower() == obj.Email.Trim().ToLower()).FirstOrDefault();
+            var auth = new AuthData(usuario.Id, usuario.Nivel);
+            return auth;
+        }
+
+        public Pessoa UsuarioAutenticado(AuthData auth)
+        {
+            var obj = _repository.Query(x => x.Id == auth.IdUsuario)
+                .Select(x => new Pessoa()
+                {
+                    Id = x.Id,
+                    Nome = x.Nome,
+                    Email = x.Email,
+                    Senha = x.Senha,
+                }).FirstOrDefault();
+            return obj;
         }
         private void ValidarDados(Pessoa pessoa)
         {
@@ -29,15 +67,15 @@ namespace App.Application.Services
             }
         }
 
-        public void Criar(Pessoa pessoa)
+        public void Criar(AuthData auth,Pessoa pessoa)
         {
-            ValidarDados(pessoa);
+            ValidarDados(pessoa);       
 
             _repository.Save(pessoa);
             _repository.SaveChanges();
         }
 
-        public void Editar(Pessoa pessoa)
+        public void Editar(AuthData auth, Pessoa pessoa)
         {
             var dadosAntigos = _repository.Query(x => x.Id == pessoa.Id).FirstOrDefault();
 
@@ -59,7 +97,7 @@ namespace App.Application.Services
 
 
 
-        public void Deletar(int id)
+        public void Deletar(AuthData auth, int id)
         {
             var dadosAntigos = _repository.Query(x => x.Id == id).FirstOrDefault();
 
@@ -72,16 +110,15 @@ namespace App.Application.Services
             _repository.SaveChanges();
         }
 
-        public Pessoa BuscarPorId(int id)
+        public Pessoa BuscarPorId(AuthData auth, int id)
         {
             var obj = _repository.Query(x => x.Id == id).FirstOrDefault();
             return obj;
         }
 
-        public List<Pessoa> BuscarLista()
+        public List<Pessoa> BuscarLista(AuthData auth)
         {
             return _repository.Query(x => 1 == 1).ToList();
         }
-
     }
 }
